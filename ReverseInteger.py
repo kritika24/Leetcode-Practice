@@ -25,7 +25,17 @@ class Solution:
         if x<0:
             x_str='-'+x_str[::-1][:-1]
             x=int(x_str)
-            return x & -0x80000000
+            x_and=x&-0x80000000
+            if x_and==-0x80000000:
+                return x
+            else:
+                return 0
+        elif x==0:
+            return 0
         else:
             x=int(x_str[::-1])
-            return x & 0x7fffffff
+            x_and=x&0x7fffffff
+            if x_and==x:
+                return x
+            else:
+                return 0
